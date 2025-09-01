@@ -1,0 +1,90 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int rows, cols;
+    
+     printf("Enter number of rows: ");
+    scanf("%d", &rows);
+    printf("Enter number of columns: ");
+    scanf("%d", &cols);
+    
+     int **A = (int**)malloc(rows * sizeof(int*));
+    for (int i = 0; i < rows; i++) {
+        A[i] = (int*)malloc(cols * sizeof(int));
+    }
+    
+     int **B = (int**)malloc(rows * sizeof(int*));
+    for (int i = 0; i < rows; i++) {
+        B[i] = (int*)malloc(cols * sizeof(int));
+    }
+    
+    int **C = (int**)malloc(rows * sizeof(int*));
+    for (int i = 0; i < rows; i++) {
+        C[i] = (int*)malloc(cols * sizeof(int));
+    }
+    
+     printf("\nEnter elements for matrix A (%dx%d):\n", rows, cols);
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("A[%d][%d] = ", i, j);
+            scanf("%d", &A[i][j]);
+        }
+    }
+    
+        printf("\nEnter elements for matrix B (%dx%d):\n", rows, cols);
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("B[%d][%d] = ", i, j);
+            scanf("%d", &B[i][j]);
+        }
+    }
+    
+     for (int i = 0; i < rows; i++) {
+        int *a_row = A[i];  // Pointer to current row of A
+        int *b_row = B[i];  // Pointer to current row of B
+        int *c_row = C[i];  // Pointer to current row of C
+        
+        for (int j = 0; j < cols; j++) {
+            *(c_row + j) = *(a_row + j) + *(b_row + j);
+        }
+    }
+    
+    printf("\nMatrix A:\n");
+    for (int i = 0; i < rows; i++) {
+        int *row_ptr = A[i];
+        for (int j = 0; j < cols; j++) {
+            printf("%3d ", *(row_ptr + j));
+        }
+        printf("\n");
+    }
+
+    printf("\nMatrix B:\n");
+    for (int i = 0; i < rows; i++) {
+        int *row_ptr = B[i];
+        for (int j = 0; j < cols; j++) {
+            printf("%3d ", *(row_ptr + j));
+        }
+        printf("\n");
+    }
+
+    printf("\nMatrix C (A + B):\n");
+    for (int i = 0; i < rows; i++) {
+        int *row_ptr = C[i];
+        for (int j = 0; j < cols; j++) {
+            printf("%3d ", *(row_ptr + j));
+        }
+        printf("\n");
+    }
+ for (int i = 0; i < rows; i++) {
+        free(A[i]);
+        free(B[i]);
+        free(C[i]);
+    }
+    free(A);
+    free(B);
+    free(C);
+
+    return 0;
+}
