@@ -1,0 +1,8 @@
+Este algoritmo imprime una matriz en orden espiral moviéndose en cuatro direcciones mientras reduce los limites o las "orillas" de la matriz. Comienza imprimiendo la fila superior de izquierda a derecha, luego la columna derecha de arriba a abajo. Después, imprime la fila inferior de derecha a izquierda (si quedan filas) y finalmente la columna izquierda de abajo a arriba (si quedan columnas). Después de imprimir cada lado, ese límite se mueve hacia el centro. Este proceso se loopea, creando rectángulos o limites más pequeños, hasta que todos los elementos se hayan impreso. 
+Las funciones que se utilizaron fueron: 
+Límite Superior (rowind): Avanza hacia abajo tras imprimir la fila superior, eliminando esa fila procesada y definiendo la nueva fila inicial para el siguiente ciclo spiral.
+Límite Derecho (encol): Se mueve izquierda después de imprimir la columna derecha, descartándola y estableciendo el nuevo borde derecho para la siguiente vuelta.
+Límite Inferior (enrow): Asciende tras imprimir la fila inferior, cerrándola como procesada y delimitando la nueva fila inferior para continuar.
+Límite Izquierdo (colind): Avanza a la derecha luego de imprimir la columna izquierda, eliminándola del área activa y fijando el nuevo inicio para las columnas.
+La funcion para hacer el loop espiral es la siguente:
+"while (rowind < enrow && colind < encol)"
