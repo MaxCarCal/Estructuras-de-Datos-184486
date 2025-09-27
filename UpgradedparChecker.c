@@ -28,7 +28,7 @@ int main(void) {
         if (c == '(' || c == '[' || c == '{') {
             // Opening bracket - push to stack
             if (isFull(top, MAX)) {
-                printf("%d\n", i);  // Stack full error
+                printf("%dERROR Stack full error\n", i);  // Stack full error
                 return 0;
             }
             st[++top] = c;
@@ -36,7 +36,7 @@ int main(void) {
         } else {
             // Closing bracket
             if (isEmpty(top)) {
-                printf("%d\n", i);  // Closing bracket with empty stack
+                printf("%dERROR // Closing bracket with empty stack\n", i);  // Closing bracket with empty stack
                 return 0;
             }
             
@@ -47,22 +47,20 @@ int main(void) {
             if ((c == ')' && t != '(') || 
                 (c == ']' && t != '[') || 
                 (c == '}' && t != '{')) {
-                printf("%d\n", i);  // Mismatched pair
+                printf("%dERROR // Mismatched pair\n", i);  // Mismatched pair
                 return 0;
             }
         }
     }
     
     if (!isEmpty(top)) {
-        printf("%d\n", idx_stack[0]);  // First unmatched opener
+        printf("%d ERROR First unmatched opener\n", idx_stack[0]);  // First unmatched opener
         return 0;
     }
     
     printf("BALANCED\n");
     return 0;
 }
-
-
 
 
 3 TESTS
