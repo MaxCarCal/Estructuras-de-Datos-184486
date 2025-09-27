@@ -61,3 +61,22 @@ int main(void) {
     printf("BALANCED\n");
     return 0;
 }
+
+
+
+
+3 TESTS
+
+
+Test 1: Balanced brackets
+Input: ([]{})
+Expected Output: OK
+
+
+Test 2: Mismatched brackets
+Input: ([)]
+Expected Output: ERROR 2
+
+Test 3: Closing bracket with empty stack
+Input: ])
+Expected Output: ERROR 0
