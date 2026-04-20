@@ -1,0 +1,24 @@
+Relaciones 
+Alumno(matricula,nombre carrera)
+Curso(clave, nombre)
+Cursa(matricula, clave):
+
+1.- Nombre de los alumno que cursan “Bases de datos”
+
+πAlumno.nombre​(σCurso.nombre="Bases de Datos"​(Alumno⋈Cursa⋈Curso))
+
+Pasos son
+a) El natural join conecta las 3 tablas por sus atributos comunes como matrícula y clave
+b) La selección filtra el nombre del curso “bases de datos”
+c) La proyección solo regresa el nombre del alumno
+
+2- Nombres de las carreras de los alumnos que no cursan ningún curso
+
+
+πAlumno.carrera​(Alumno−πAlumno.matricula,Alumno.nombre,Alumno.carrera​(Alumno⋈Cursa))
+
+Pasos son
+a)Alumno⋈Cursa obtiene a todos los que están inscritos en al menos 1 curso
+b)La proyección va a reducir los atributos de los alumnos para aplicar diferencia
+c)La diferencia deja solo alumnos que NO aparecen en “cursa”
+d)Al final solo se extrae la carrera
