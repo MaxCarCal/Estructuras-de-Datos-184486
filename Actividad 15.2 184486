@@ -1,0 +1,10 @@
+Filtrar solo los alumnos de la carrera deseada
+R1 = σCarrera = "Sistemas Computacionales" (Alumno)
+Combinar R1 con Cursa usando el atributo común matrícula
+R2 = R1 ⋈ Cursa
+Combinar R2 con Curso usando el atributo común clave
+R3 = R2 ⋈ Curso
+Quedarse únicamente con los atributos de interés
+R4 = πAlumno.nombre, Curso.nombre (R3)
+Expresión final
+πAlumno.nombre, Curso.nombre ( σCarrera="Sistemas Computacionales" (Alumno) ⋈ Cursa ⋈ Curso )
